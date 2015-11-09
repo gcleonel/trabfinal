@@ -1,0 +1,437 @@
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Light.ttf');
+  src: url('../fonts/Roboto-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mark';
+  src: url('../fonts/mark_simonson.woff');
+  src: url('../fonts/mark_simonson.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mark_light';
+  src: url('../fonts/mark_simonson_light.woff');
+  src: url('../fonts/mark_simonson_light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mark_black';
+  src: url('../fonts/mark_simonson_black.woff');
+  src: url('../fonts/mark_simonson_black.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mark_bold';
+  src: url('../fonts/mark_simonson_bold.woff');
+  src: url('../fonts/mark_simonson_bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mark_thin';
+  src: url('../fonts/mark_simonson_thin.woff');
+  src: url('../fonts/mark_simonson_thin.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cwb';
+  src: url('../fonts/CWB.woff2');
+  src: url('../fonts/CWB.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  min-height: 100%;
+  background: #FFF;
+  padding-bottom: 270px;
+  background-image: url('../imgs/back-9.png');
+  font-family: "Mark";
+}
+
+
+/* HEADER ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+header {
+  min-height: 40%;
+  background: #ffffff;
+  /*border: 1px solid #000;*/
+}
+
+a {
+  color: #FF3300;
+}
+a:hover {
+  color: #FF3300;
+}
+
+.info-site, .info-site a {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  color: #FF3300;
+  font-family: "Cwb";
+  font-size: 12px;
+}
+
+.logo {
+  margin: 0 auto;
+  /*border: 1px solid #000;*/
+}
+
+.logo a{
+    color: #FF3300;
+    font-weight: bold;
+    font-family: "mark_bold";
+    /*border: 1px solid #eee;*/
+    font-size: 40px;
+}
+
+.logo a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* CAMPO PESQUISA */
+#custom-search-input{
+  border: solid 1px #E4E4E4;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+#custom-search-input input{
+  border: 0;
+  box-shadow: none;
+  font-family: "Mark_thin";
+  font-weight: bold;
+}
+
+#custom-search-input button{
+  margin: 2px 0 0 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  color: #FF3300;
+  padding: 0 8px 0 10px;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+  border: 0;
+  box-shadow: none;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+  font-size: 23px;
+}
+
+/* CARRINHO */
+.carrinho {
+  font-family: sans-serif;
+  color: #FF3300;
+  padding: 0;    
+  /*border: 1px solid #000;*/
+  margin: 0 auto;
+
+}
+
+.carrinho .panel {
+  border: 2px solid #f4f4f4;
+}
+
+.carrinho .panel-body {
+  padding: 0;
+  background: #FF3300;
+}
+
+.carrinho .img-carrinho {
+  /*border: 1px solid #000;*/
+  margin: 0px 0px;
+  padding: 5px 10px ;
+  background: #FFFFFF;
+}
+
+.carrinho .img-carrinho:hover {
+  background: #7F1900;
+}
+
+.carrinho .content-carrinho {
+ /*border: 1px solid #000;*/
+ margin: 0;
+ padding: 0;
+}
+
+.carrinho .content-name {
+  /*border: 1px solid #000;*/
+  color: #FFFFFF;
+  padding: 0 0 0 8px;
+  font-family: "Cwb";
+  
+}
+
+.carrinho .content-item {
+  /*border: 1px solid #000;*/
+  color: #FFFFFF;
+  padding: 0 0 0 8px;
+  font-family: "Cwb";
+  font-size: 13px;
+}
+
+/* FIM HEADER ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+#wrapper {
+  min-height: 100%;
+  background: #FFFFFF;
+  background-image: url('../imgs/back-9.png');
+  /*box-shadow: 2px 0px 14px 9px rgba(0, 0, 0, 0.5);*/
+}
+
+/*CARROCEL*/
+.slide-image {
+  width: 100%;
+}
+
+.carousel-holder {
+  margin-bottom: 0px;
+}
+
+.carousel-control,
+.item {
+  border-radius: 4px;
+}
+
+
+/*LISTA DE PROUTOS*/
+
+.box-produto {
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.2);
+  border: 1px solid #DDD;
+  margin: 0 16px 16px 0;
+  padding: 10px 15px 0 15px;
+  /*border: 1px solid #FF3300;*/
+}
+
+.box-produto .box-tile-produto {
+  background: #FF3300;
+  border: 1px solid #FF3300;
+  margin: 5px;
+}
+
+.box-produto .box-title-produto .especial {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35px;
+  height: 0px;
+  color: #FF3300;
+  z-index: 1;
+  border-style: solid;
+  border-width: 0 40px 40px 0;
+  border-color: transparent #FF3300 transparent transparent;
+
+}
+
+.box-produto .box-title-produto .icon {
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+
+.box-produto #box-descricao-produto{
+  /*border: 1px solid #FF3300;*/
+  padding: 10px 10px 0 10px;
+  margin-top: 10px;
+  background: #f7f7f7;
+}
+
+.box-produto .box-nameproduto {
+  /*border: 2px solid #eee;*/
+  font-family: "Cwb";
+  text-transform: uppercase;
+  font-size: 12px;
+  height: 60px;
+  padding: 10px 0px;
+  margin: 0;
+}
+
+.box-produto .box-nameproduto a{
+  color: #444444;
+}
+
+.box-produto .box-nameproduto a:hover{
+  color: #FF3300;
+}
+
+.box-produto .box-valor {
+  padding: 0;
+  margin: 0;
+  color: #FF0000;
+  font-family: "Mark_light";
+  font-size: 20px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.btn-detalhe {
+  text-align: right;
+  background: #FF3300;
+  color: #ffffff;
+  font-family: "Cwb";
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  padding: 10px;
+  border:2px solid #FF3300;
+}
+
+.btn-detalhe:hover {
+  background: #CC2900;
+  color: #FFFFFF;
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 0px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+
+
+.propaganda-banner {
+  background-image: url('../imgs/bg4.png');
+  height: 415px;
+  color: #40FF40;
+  text-align: left;
+  font-family: "Mark_bold";
+  font-weight: bold;
+}
+
+.table {
+}
+
+.campo-qnt {
+  max-width: 60px;
+}
+
+.btn-edit {
+    background: #FF3300;
+    color: #FFFFFF;
+}
+
+.btn-edit:hover {
+  color: #FFFFFF;
+  opacity: 0.8;
+  background: #FF3300;
+}
+
+.dados-cadastrais {
+    background: #333;
+}
+
+.prod-destaque {
+    color: #FF3300;
+    font-family: "Mark_thin";
+}
+
+.title-categorias {
+    font-family: "Mark_thin";
+    font-size: 40px;
+    color: rgba(0,0,0,0.8);
+    
+}
+
+.bg-categorias {
+    min-height: 30%;
+    border-top: 1px solid #ffffff;
+    padding: 50px 10px;
+    background: #ffffff;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background: #f4f4f4;
+}
+
+
+
+.form-novo-cliente {
+    padding: 10px;
+}
+
+.form-novo-cliente label {
+    width: 180px;
+    text-align: right;
+}
+
+.form-novo-cliente input, select {
+    padding: 10px;
+    width: 400px;
+    border: 1px solid #cdcfd1;
+    margin-bottom: 2px;
+    box-shadow: none;
+    line-height: 1.52857;
+}
+
+.errorlist {
+    color: #FF3333;
+}
+
+.errorlist li {
+    list-style: none;
+    padding-left: 30px;
+}
+
+.box-danger {
+    width: 100%;
+    padding: 10px;
+    /*color: #FFFFFF;*/
+    font-weight: bold;
+    font-family: sans-serif;
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+    color: #FF3300;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #FF3300;
+  color: #FFFFFF;
+  padding-top: 10px;
+  box-shadow: 2px 0px 14px 1px rgba(0, 0, 0, 0.5);
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}

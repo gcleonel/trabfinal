@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block conteudo %}
+<br><br>
+<div class="container">
+<div class="col-xs-12">
+	<div class="col-sm-4" id="carousel-bounding-box">
+		<div class="carousel slide" id="myCarousel">
+			<!-- Carousel items -->
+			<div class="carousel-inner">
+				{% for im in imgs%}
+				{% if forloop.counter == 1%}
+				<div class="active item" data-slide-number="0">
+					<img width="400" height="400" data-toggle="magnify" src="{{im.arquivo.url}}" alt="" class="img-responsive">
+				</div>
+				{% else %}
+				<div class="item" data-slide-number="{{forloop.counter0}}">
+					<img width="400" height="400" data-toggle="magnify" src="{{im.arquivo.url}}" alt="">
+				</div>
+				{% endif%}
+
+				{% endfor%}
+			</div><!-- Carousel nav -->
+		</div>
+	</div>
+
+	<div class="col-sm-8" id="carousel-text">
+		<h1 class="title-categorias">{{produto.descricaocompleta}}</h1>
+		<h1>R$ {% if produto.is_promocao == 'N' %} {{ produto.valor_venda }} {% else %} {{ produto.valor_promocao }} {% endif %}</h1>
+		<p class="text-justify">{{produto.ingredientes}}</p>
+		<br>
+		<p class="text-left"><a class="btn btn-lg btn-default" href="{% url 'carrinho:add_carrinho' produto.id %}"> <img src="{% static "imgs/icons/basket37.png" %}"> escolher esse</a></p>
+		<br>
+	</div>
+</div>
+
+<div class="col-xs-12 hidden-xs" id="slider-thumbs">
+	<!-- Bottom switcher of slider -->
+	<ul class="hide-bullets">
+
+		{% for im in imgs%}
+		<li class="col-sm-1">
+
+			{% if forloop.counter == 1%}
+			<a title="" class="thumbnail" id="carousel-selector-0">
+				<img width="40" height="40" src="{{im.arquivo.url}}" alt="">
+			</a>
+			{% else %}
+			<a title="" class="thumbnail" id="carousel-selector-{{forloop.counter0}}">
+				<img width="40" height="40" src="{{im.arquivo.url}}" alt="">
+			</a>
+			{% endif%}
+
+		</li>
+		{% endfor%}
+
+	</ul>                 
+</div>
+</div>
+<br><br>
+{% endblock conteudo %}

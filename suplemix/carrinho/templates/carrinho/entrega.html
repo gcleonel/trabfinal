@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="container">
+	<div class='col-sm-12'>
+		<br><br>
+		{% if empty %}
+
+		<h1 style='text-align:center;'>{{ empty_msg }}</h1>
+
+		{% else %}
+
+		<h1 class="page-header title-categorias">endereço de entrega</h1>
+			{# {{msg}} #}
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td><b>Nome:</b> </td>
+					<td> {{cliente.nome}} {{cliente.sobrenome}}</td>
+				</tr>
+
+				<tr>
+					<td><b>Rua:</b> </td>
+					<td> {{cliente.rua}}</td>
+				</tr>
+				<tr>
+					<td><b>Número:</b> </td>
+					<td>{{cliente.numero}} </td>
+				</tr>
+	
+				<tr>
+					<td><b>Bairro:</b> </td>
+					<td> {{cliente.bairro}}</td>
+				</tr>
+				<tr>
+					<td><b>Cidade:</b> </td>
+					<td> {{cliente.cidade}}</td>
+				</tr>
+				<tr>
+					<td><b>Estado:</b> </td>
+					<td> {{cliente.estado}} <br></td>
+				</tr>
+				<tr><td><a href="{% url 'clientes:editar_cliente' cliente.id %}" class="btn btn-xs btn-default">mudar endereço</a></td></tr>
+
+			</tbody>
+		</table>
+		
+		<hr>
+
+		<br>
+
+		<a class="btn btn-sm btn-warning pull-right btn-edit" href="{% url 'pedidos:gerar_pedido' %}" title="">Confirmar Pedido	</a>
+
+		<h1>{{debug}}</h1>
+
+		{% endif %}
+
+	</div>
+</div>
+{% endblock conteudo%}

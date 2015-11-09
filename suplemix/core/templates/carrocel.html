@@ -1,0 +1,40 @@
+<section>
+  <div class="carousel-holder">
+
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+      <ol class="carousel-indicators">
+        {% for c in carrocel %} 
+        {% if forloop.counter == 1%}
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        {% else %}
+        <li data-target="#carousel-example-generic" data-slide-to="{{forloop.counter0}}"></li>
+        {% endif%}
+        {%  endfor %}
+      </ol>
+
+
+      <div class="carousel-inner">
+        {% for car in carrocel %}
+
+        {% if forloop.counter == 1%}
+        <div class="item active">
+          <img class="slide-image" src="{{car.imagem.url}}" alt="">
+        </div>
+        {% else %}
+        <div class="item">
+          <img class="slide-image" src="{{car.imagem.url}}" alt="">
+        </div>
+        {% endif %}
+
+        {% endfor %}
+      </div>
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>  
+</section>

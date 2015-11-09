@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{%  load staticfiles %}
+
+{% block conteudo %}
+
+
+<div class="container">
+	<div class="col-sm-10 col-sm-offset-1">
+		<div class="row">
+			{% if empty %}
+			<h1 class="text-center title-categorias">{{ empty_msg }}</h1>
+			{% else %}
+
+			<table class="table table-condensed table-hover">
+				<h1 class="title-categorias">minha cesta</h1>
+				<thead>
+					<tr>
+						<th>Produto</th>
+						<th></th>
+						<th>Quantidade</th>
+						<th>Valor Uni.</th>
+						<th> Total</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for item in carrinho.itemcarrinho_set.all %}
+					<tr>
+						<td>
+							<img id="img-cesta" class="img-responsive" width="50" height="50" src="{{item.produto.foto.url}}" alt="">
+						</td>
+						<td><a href="{% url 'produtos:detalhe_produto' item.produto.id %}">{{ item.produto.descricaoreduzida }}</a></td>
+						<td>
+							<form action="/carrinho/editar-item-carrinho/" method="POST" accept-charset="utf-8" class="form-inline">
+								{% csrf_token %}
+								<input type="hidden" name="id" value="{{item.id}}">
+								<input class="form-control campo-qnt" type="number" name="qnt" value="{{item.quantidade}}" placeholder="">
+								<button type="submit" class="btn btn-sm btn-edit"><i class="glyphicon glyphicon-refresh"></i>
+								</button>
+							</form>
+						</td>
+						<td>R$ {{item.produto.get_preco}}</td>
+						<td>R$ {{ item.total }}</td>
+						<td><a href='{% url 'carrinho:remover_item_carrinho' item.id %}' class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a></td>
+					</tr>
+					{% endfor %}
+					<tr>
+						<td colspan="4" class="text-right"><h3><b>Total: R$</b></h3></td>
+						<td colspan="2"><h3 class="text-left"> {{ carrinho.total }}</h3></td>
+					</tr>
+
+					<tr>
+						<td>
+							<a class="btn" href="{% url 'core:home' %}" title="">escolher mais produtos</a></td>
+							<td colspan="5" class="text-right">
+								<a class="btn btn-md btn-danger btn-edit" href="{% url 'carrinho:autenticacao' %}" title="">CONFIRMAR	</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				{% endif %}
+			</div>
+		</div>
+
+	</div>
+
+
+<!-- 
+<div class="container">
+	<br><br>
+	<div class='col-sm-12'>
+
+		{% if empty %}
+		<br><br><br><br><br>
+		<h1 class="text-center title-categorias">{{ empty_msg }}</h1>
+		<p class="text-center"><a class="btn btn-warning btn-sm" href="{% url 'core:home' %}" title="">ir as compras</a></p>
+		<br><br><br><br><br><br><br><br>
+		{% else %}
+
+		<table class='table'>
+			<thead>
+				<th>Produto</th>
+				<th></th>
+				<th>Quantidade</th>
+				<th>Valor Uni.</th>
+				<th> Total</th>
+				<th></th>
+			</thead>
+
+			{% for item in carrinho.itemcarrinho_set.all %}
+			<tr>
+				<td>
+					<img id="img-cesta" src="{{item.produto.foto.url}}" alt="">
+					
+				</td>
+				<td>
+					<a href="{% url 'produtos:detalhe_produto' item.produto.id %}">{{ item.produto.descricaoreduzida }}</a></td>
+					<td>
+						<form action="/carrinho/editar-item-carrinho/" method="POST" accept-charset="utf-8" class="form-inline">
+							{% csrf_token %}
+							<input type="hidden" name="id" value="{{item.id}}">
+							<input class="form-control campo-qnt" type="number" name="qnt" value="{{item.quantidade}}" placeholder="">
+							<button type="submit" class="btn btn-md btn-edit">
+								<i class="glyphicon glyphicon-refresh"></i>
+							</button>
+						</form>
+					</td>
+					<td>R$ {% if item.produto.is_promocao == 'N' %} {{ item.produto.valor_venda }} {% else %} {{ item.produto.valor_promocao }} {% endif %}</td>
+					<td>R$ {{ item.total }}</td>
+					<td class="text-center"><a href='{% url 'carrinho:remover_item_carrinho' item.id %}' class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a></td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<td colspan="5"></td>
+					<td class="text-right"><h3 class="text-right">Total: R$ <b>{{ carrinho.total }}</b></h3></td>
+				</tr>
+
+				<tr>
+					<td class="text-left"><a class="btn btn-sm btn-primary" href="{% url 'core:home' %}" title="">Continuar comprando</a></td>
+					<td colspan="5" class="text-right"><a class="btn btn-md btn-warning" href="{% url 'carrinho:autenticacao' %}" title="">Comprar	</a></td>
+				</tr>
+
+			</table>
+			
+			<h1>{{debug}}</h1>
+
+			{% endif %}
+			
+		</div>
+	</div>
+-->
+
+{% endblock conteudo %}

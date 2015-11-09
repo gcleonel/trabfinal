@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block carrocel %}
+{% include 'carrocel.html'%}
+{% endblock carrocel %}
+
+
+{% block conteudo %}
+<section>
+	<div class="container">
+		<div class="col-sm-12">
+			<div class="row">
+				<h1 class="page-header">os mais procurados</h1>	
+			</div>
+		</div>		
+		{% for pro in produtos %}
+		
+		<div class="col-sm-2 col-xs-12 box-produto">
+			<!-- 
+			<div class="row">
+				<div class="box-title-produto">
+					<div class="col-sm-4">
+						LEONEL
+					</div>
+
+					<div class="col-sm-4 especial">
+					
+					</div>
+
+					<div class="col-sm-4">
+						<i class="glyphicon glyphicon-hand-down icon"></i>
+					</div>
+				</div>
+
+			</div>
+		-->
+
+		<div class="row">
+			<div class="col-sm-12">
+				<a href="{% url 'produtos:detalhe_produto' pro.id %}">
+					<img src="{{MEDIA_URL}}{{pro.foto.url}}" class="img-responsive">
+				</a>
+			</div>
+		</div>
+
+		<div class="row" id="box-descricao-produto">
+			<div class="col-sm-12 box-nameproduto">
+				<a href="{% url 'produtos:detalhe_produto' pro.id %}">
+					{{pro.descricaoreduzida}}
+				</a>
+			</div>
+			<div class="col-sm-12 box-valor">
+				{% if pro.is_promocao %}
+				R$ {{pro.get_preco}}
+				{% else %}
+				R$ {{pro.get_preco}}
+				{% endif %}
+
+			</div>
+		</div>
+		<div class="row">
+			<a href="{% url 'produtos:detalhe_produto' pro.id %}" class="btn btn-xs btn-default btn-detalhe">
+				<i class="glyphicon glyphicon-plus"></i> detalhes
+			</a>	
+		</div>
+
+	</div>
+
+	{% endfor%}
+</div>
+</section>
+
+<section>
+	<div class="col-sm-12">
+    <div class="row">
+      <div class="propaganda-banner">
+        <div class="container">
+        <h2>os melhores Pordutos para você</h2>
+        </div>
+        <!--<img class="img-responsive" src="{% static "imgs/bg5.jpg" %}" alt=""> -->
+      </div>
+    </div>
+  </div>	
+</section>
+
+{% endblock conteudo %}
+

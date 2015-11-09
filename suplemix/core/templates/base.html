@@ -1,0 +1,193 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+  <title>Suplemix</title>
+  
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/flexslider.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/zoom.css" %}">
+
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="row  info-site">
+        <div class="col-sm-12 text-center">
+          <i class="glyphicon glyphicon-envelope"></i> <a href="#">fale conosco</a> &nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="glyphicon glyphicon-earphone"></i> telefone: (99) 0000-0000
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="glyphicon glyphicon-th-large"></i> <a href="{% url 'pedidos:meus_pedidos' %}">meus pedidos</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="glyphicon glyphicon-user"></i> <a href="#">minha conta</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          {% if not request.session.cliente_nome %}
+          olá, visitante <a href="{% url 'clientes:login_cliente' %}" title="">(entrar)</a>
+          {% else %}
+          olá, {{request.session.cliente_nome}} <a href="{% url 'carrinho:log_out' %}" title="">(sair)</a>
+          {% endif %}
+        </div>  
+      </div>
+
+      <div class="row">
+       <div class="col-sm-2 text-center">
+        <div class="logo">
+          <a href="{% url 'core:home' %}" title="">Suplemix</a>
+          
+        </div>
+      </div>
+
+      <div class="col-sm-8 text-center">
+       <div id="custom-search-input">
+        <form action="base_submit" method="get" accept-charset="utf-8">
+          <div class="input-group col-md-12">
+            <input type="text" class="form-control input-lg" placeholder="Buscar" />
+            <span class="input-group-btn">
+              <button class="btn btn-default btn-lg" type="button">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <div class="col-sm-2">
+      <div class="carrinho">
+        <div class="panel panel-primary">
+          <div class="panel-body">
+            <div class="col-sm-4 col-xs-2 img-carrinho">
+              <a href="{% url 'carrinho:view' %}"><img src="{% static 'imgs/icons/basket37.png' %}" alt=""></a>
+            </div>
+            <div class="col-sm-8 col-xs-8 content-carrinho">
+              <div class="content-name">
+                minha cesta
+              </div>
+              <div class="content-item">
+                {% if request.session.itens_total <= 0%} 
+                0 item 
+                {% elif request.session.itens_total == 1%}
+                {{ request.session.itens_total }} item
+                {% else %} 
+                {{ request.session.itens_total }} itens
+                {% endif%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+<div id="wrapper">
+
+  <div class="col-sm-12">
+    <div class="row">
+      {% block carrocel %}
+      {% endblock carrocel %}
+    </div>
+  </div>
+  {% block conteudo %}
+  {% endblock conteudo %}
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        Suplemix - Todos os disretos reservados
+      </div>
+    </div>
+  </div>  
+</footer>
+
+
+
+<!-- jQuery -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static "js/jquery.min.js" %}"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{% static "js/bootstrap.js" %}"></script>
+<script src="{% static "js/jquery.flexslider-min.js" %}"></script>
+<script src="{% static "js/zoom.js" %}"></script>
+
+<script type="text/javascript">
+ jQuery(document).ready(function($) {
+
+  $('#myCarousel').carousel({
+    interval: 5000
+  });
+
+
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+  })
+
+
+  $('#carousel-text').html($('#slide-content-0').html());
+
+        //Handles the carousel thumbnails
+        $('[id^=carousel-selector-]').click( function(){
+          var id = this.id.substr(this.id.lastIndexOf("-") + 1);
+          var id = parseInt(id);
+          $('#myCarousel').carousel(id);
+        });
+        
+        
+        // When the carousel slides, auto update the text
+        $('#myCarousel').on('slid.bs.carousel', function (e) {
+         var id = $('.item.active').data('slide-number');
+         $('#carousel-text').html($('#slide-content-'+id).html());
+       });
+      });
+</script>
+
+<script type="text/javascript">
+  $(function() {
+    var action;
+    $(".number-spinner button").mousedown(function () {
+      btn = $(this);
+      input = btn.closest('.number-spinner').find('input');
+      btn.closest('.number-spinner').find('button').prop("disabled", false);
+
+      if (btn.attr('data-dir') == 'up') {
+        action = setInterval(function(){
+          if ( input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max')) ) {
+            input.val(parseInt(input.val())+1);
+          }else{
+            btn.prop("disabled", true);
+            clearInterval(action);
+          }
+        }, 50);
+      } else {
+        action = setInterval(function(){
+          if ( input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min')) ) {
+            input.val(parseInt(input.val())-1);
+          }else{
+            btn.prop("disabled", true);
+            clearInterval(action);
+          }
+        }, 50);
+      }
+    }).mouseup(function(){
+      clearInterval(action);
+    });
+  });
+</script>
+</body>
+</html>

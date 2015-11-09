@@ -1,0 +1,693 @@
+/*!
+ * Start Bootstrap - Shop Homepage HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+ @font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Light.ttf');
+    src: url('../fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mark';
+    src: url('../fonts/mark_simonson.woff');
+    src: url('../fonts/mark_simonson.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mark_light';
+    src: url('../fonts/mark_simonson_light.woff');
+    src: url('../fonts/mark_simonson_light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mark_black';
+    src: url('../fonts/mark_simonson_black.woff');
+    src: url('../fonts/mark_simonson_black.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mark_bold';
+    src: url('../fonts/mark_simonson_bold.woff');
+    src: url('../fonts/mark_simonson_bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mark_thin';
+    src: url('../fonts/mark_simonson_thin.woff');
+    src: url('../fonts/mark_simonson_thin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cwb';
+    src: url('../fonts/CWB.woff2');
+    src: url('../fonts/CWB.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    margin-top: 40px;
+    /*background-color: rgba(0,0,0,0.8);*/
+    background: #FF3300;
+    color: #fff;
+    border-top: 1px solid #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
+    padding-top: 10px
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 0px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+
+.line-prod {
+    width: 100%;
+    height: 1px;
+    margin: 0px;
+    /*background-image: linear-gradient(to right, #FF0000, #C00000, #FF0000   120%);*/
+    background: #a60000;
+}
+
+.logo a{
+    color: #FF3300;
+    font-weight: bold;
+    font-family: "mark_bold";
+    /*border: 1px solid #eee;*/
+    font-size: 45px;
+    margin: 0px;
+}
+
+.logo a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* CAMPO PESQUISA */
+#custom-search-input{
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+    font-family: "Mark_thin";
+    font-weight: bold;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #FF3300;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+/* BOX CARRINHO */
+.box-info-carrinho {
+    top: 10px;
+    position: relative;
+    margin-left: 30px;
+    height: 45px;
+    width: 150px;
+    /*border: 1px solid #eee;*/
+}
+
+.box-info-carrinho {
+    font-size: 10px;
+    color: #FF3300;
+}
+
+.img-carrinho {
+    /*border: 1px solid #eee;*/
+    width: 32px;
+}
+
+.text-cesta {
+    position: relative;
+    top: -28px;
+    /*border: 1px solid #eee;*/
+    left: 36px;
+    width: 80%;
+    color: #FF3300;
+    padding: 5px;
+}
+
+.text-cesta a {
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #FF3300;    
+}
+
+
+.itens-cesta {
+    position: relative;
+    top: -33px;
+    left: 40px;
+    width: 80%;
+    /*border: 1px solid #eee;*/
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+    color: #FF3300;
+}
+
+
+
+.box-links {
+    background: #fff;
+    height: 36px;
+}
+
+.breadcrumb{
+    background: #fff;
+}
+
+/*DETALHE PRODUTO*/
+.nome-detalhe-produto {
+    color: #636363;
+    font-size: 12px;
+    font-family: "cwb";
+    line-height: 1;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    font: 62.5%/1.25 arial,Verdana,helvetica,sans-serif;
+    color: #666;
+}
+
+.box-info-img-produto {
+    width: 100%;
+    /*border: 1px solid #eee;*/
+    margin-bottom: 40px;
+}
+
+.box-info-img-produto .carrocel-vertical {
+    width: 100%;
+    padding: 15px 0;
+    height: 50px;
+    border: 1px solid #eee;
+}
+
+.box-info-img-produto .carrocel-vertical ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.box-info-img-produto .carrocel-vertical ul li {
+    border: 1px solid #eee;
+}
+
+.box-info-img-produto .carrocel-vertical img {
+    max-width: 60px;
+    max-height: 50px;
+    /*border: 1px solid #eee;*/
+    margin: 0px auto 10px auto;
+    /*border: 1px solid #333;*/
+}
+
+.box-info-img-produto .carrocel-vertical img:hover {
+    cursor: pointer;
+    background: #eee;
+}
+
+.img-principal {
+    position: relative;
+    left: 60px;
+    top: -211px;
+    display: inline-block;
+    height: 100%;
+    /*border: 1px solid #333;*/
+}
+
+.img-principal img {
+    /*border: 1px solid #333;*/
+}
+
+.slider {
+    max-height: 40%;
+}
+
+.flexslider {
+    width: 400px;
+}
+
+.grid-control {
+    width: 950px;
+    margin: 0 auto;
+    padding: 10px 26px;
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+}
+
+/*CESTA de COMPRAS*/
+.campo-qnt {
+    max-width: 60px;
+}
+
+.btn-edit {
+    background: #ffffff;
+}
+
+#img-cesta {
+    width: 80px;
+    height: 80px;
+}
+
+.autentica {
+    border-left: 1px solid #eee;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.form-novo-cliente {
+    padding: 10px;
+}
+
+.form-novo-cliente label {
+    width: 180px;
+    text-align: right;
+}
+
+.form-novo-cliente input, select {
+    padding: 10px;
+    width: 400px;
+    border: 1px solid #cdcfd1;
+    margin-bottom: 2px;
+    box-shadow: none;
+    line-height: 1.52857;
+}
+
+.errorlist {
+    color: #FF3333;
+}
+
+.errorlist li {
+    list-style: none;
+    padding-left: 30px;
+}
+
+.box-danger {
+    width: 100%;
+    padding: 10px;
+    /*color: #FFFFFF;*/
+    font-weight: bold;
+    font-family: sans-serif;
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+    color: #FF3300;
+}
+
+.title-top {
+    padding-top: 5px;
+    padding-bottom: 1px;
+    /*background: #e60014;*/
+    background: #fff;
+    margin-bottom: 15px;
+}
+
+.text-title-top{
+    margin: 8px;
+    font-family: "Roboto";
+    font-size: 12px;
+    color: #FF3300;
+    font-weight: bold;
+}
+
+.searsh {
+    background: #fff;
+    margin-top: 5px;
+}
+
+.btn-warning {
+    background: #FF3300;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+
+/*DETALHE DO PRODUTO*/
+.hide-bullets {
+    list-style:none;
+    margin-left: -40px;
+    margin-top:20px;
+}
+
+
+/*NOVO CARRINHO
+.cart-position {
+    float: right;       
+    position: relative;
+    margin: 0 0 5px 39px;
+    border-radius: 6px;
+    padding: 10px 0px;
+    color: #FF3333;
+    background: #FF3333;
+}
+
+
+
+.text-cesta a{
+    font-family: "Open";
+    font-size:12px;
+}
+
+*/
+
+
+/*NEW CSS*/
+
+header {
+    /*border: 1px solid #FF3333;*/
+    background: #FFFFFF;
+    box-shadow: 0px 1px 9px #666;
+}
+
+header .bg-header{
+    background: #FFFFFF;
+    color: #FF3300;
+    width: 100%;
+    font-size: 12px;
+    margin: 0px 0px 10px 0px;
+    padding-top: 10px;
+    font-weight: bold;
+
+}
+
+
+header .bg-header a {
+    color: #FF3300;
+    font-weight: bold;
+}
+
+.line-top {
+    width: 100%;
+    height: 3px;
+    margin: 0px 0px;
+    background-image: linear-gradient(to right, #FF3300, #FF3333, #FF3300   110%);
+
+    /*-webkit-box-shadow: 0px 3px 5px -1px rgba(158,154,152,1);
+    -moz-box-shadow: 0px 3px 5px -1px rgba(158,154,152,1);
+    box-shadow: 0px 3px 5px -1px rgba(158,154,152,1);*/
+}
+
+.menu-principal {
+    background: #FFFFFF;
+    margin-top: 10px;
+}
+/*
+.caption {
+    margin: 100px 0px 0px 0px;
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+.thumbnail h4 a{
+   
+    font-family: "Roboto";
+    color: #541100;
+    height: 50px;
+}
+
+.caption .color-black {
+    color: #333;
+    font-family: "Roboto";
+}
+
+.thumbnail img {
+    margin-top: 10px;
+    width: 60%;
+    height: 50%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    overflow: hidden;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #000;
+}
+
+.btn-detalhes:hover {
+    background: #FF3300;
+    color: #fff;
+    font-weight: bold;
+}
+*/
+p {
+    font-family: "Roboto";
+    margin: 0px;
+}
+
+/*.overlay {
+    background: #F80000 url("../imgs/icons/plus-white.png") center no-repeat;
+    height: 130px;
+    position: relative;
+    top: 100px;
+    transition: all .2s linear;
+    width: 100%;
+    z-index: 2;
+    opacity: .5;
+}
+*/
+.thumbnail:hover .overlay {
+    top: -180px;
+    cursor: pointer;
+}
+
+/*
+.panel .panel-warning {
+    border-radius: 6px;
+}
+
+.panel .panel-primary {
+    border: 1px solid #333;
+}
+
+#panel-body-custom .panel-body img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.panel .panel-footer {
+    background: #fff;
+}
+
+*/
+
+/*
+#panel-body-custom .panel-body {
+    border-top: 1px solid #666;
+    text-align: center;
+    height: 350px;
+}
+
+#panel-body-custom .panel-body .name {
+    width: 100%;
+    padding: 0;
+    
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: justify;
+    border: 1px solid #333;
+}
+
+#panel-body-custom .panel-body .name h4{
+    font-family: "Mark_bold";
+    text-decoration: none;
+}
+
+.panel .panel-footer-custom {
+    background: #303030;
+    background-color: rgba(0,0,0,0.8);
+    color: #FFFFFF;
+    font-family: sans-serif;
+    border-top: 4px solid #ff3300;
+    min-height: 100px;
+    padding: 20px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+.name:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.btn-detalhe {
+    background-color: rgba(0,0,0,0.2);
+    color: #FFFFFF;
+}
+
+.preco {
+    font-family: "Roboto";
+    font-size: 15px;
+    margin: 0px 0px;
+    color: #FFFFFF;
+    font-weight: bold;
+}*/
+
+
+/*PRODUTO*/ 
+
+
+/*FIM PRODUTO*/
+
+.dados-cadastrais {
+    background: #333;
+}
+
+.prod-destaque {
+    color: #FF3300;
+    font-family: "Mark_thin";
+}
+
+.title-categorias {
+    font-family: "Mark_thin";
+    font-size: 40px;
+    color: rgba(0,0,0,0.8);
+    
+}
+
+.bg-categorias {
+    min-height: 30%;
+    border-top: 1px solid #ffffff;
+    padding: 50px 10px;
+    background: #ffffff;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background: #f4f4f4;
+}
+
+.img-circle {
+    margin: 20px auto;
+    /*border: 1px solid #00ffcc;*/
+    /*background-image: url('../imgs/bg2.jpg');*/
+    height: 150px;
+    width: 150px;
+    color: #00ffcc;
+    text-align: center;
+    padding-top: 55px;
+    background-color: rgba(0,0,0,0.8);
+    border: 1px solid #ffeeee;
+    
+}
+.img-circle:hover {
+    cursor: pointer;
+    border: 1px solid #00ffcc;
+    background: #00ffcc;
+    font-weight: bold;
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition-delay: 1s;
+}
+
+
+.img-circle:hover h4 {
+    color: #303030;
+}
+
+.img-circle h4 {
+    color: #00ffcc;
+    font-family: "Mark_light";
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.bg-footer-produto {
+    background-color: rgba(0,0,0,0.7);
+    background-image: url('../imgs/bg2.jpg');
+}
+
+.bg-footer-produto p {color: #FFFFFF}
+
+#name-prod {
+    padding: 5px 0;
+    font-family: "Mark_bold";
+    font-weight: bold;
+    color: rgba(0,0,0,0.6);
+    height: 50px;
+    margin: 0 5px;
+    
+}
+
+#valor-prod {
+    font-family: "Mark_black";
+    font-size: 25px;
+    color: #00ffcc;
+}
+
+.btn-detalhe {
+    background-color: rgba(0,0,0,0.2);
+    color: #FFFFFF;
+}
+
+.panel .panel-warning .panel-body{
+    border-color: #FFFFFF;
+    padding-top: 0;
+}

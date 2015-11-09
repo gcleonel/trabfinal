@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	{% include 'header.html'%}
+	<div class="box-links">
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="{% url 'core:home' %}">Home</a></li>
+			<li class="active">Cadastro de usuário</li>
+		</ol>
+	</div>
+</div>
+{% endblock header %}
+
+{% block conteudo %}
+<div class='col-sm-8 col-sm-offset-2'>
+	<br><br>
+	{% if empty %}
+
+		<h1 style='text-align:center;'>{{ empty_msg }}</h1>
+
+	{% else %}
+
+	<h1 class="page-header">Endereço de entrega</h1>
+
+	<table>
+		<thead>
+		</thead>
+		<tbody>
+			<tr>
+				<td><b>Nome:</b> </td>
+				<td> {{cliente.nome}} {{cliente.sobrenome}}</td>
+			</tr>
+			
+			<tr>
+				<td><b>Rua:</b> </td>
+				<td> {{cliente.rua}}</td>
+			</tr>
+			<tr>
+				<td><b>Bairro:</b> </td>
+				<td> {{cliente.bairro}}</td>
+			</tr>
+			<tr>
+				<td><b>Cidade:</b> </td>
+				<td> {{cliente.cidade}}</td>
+			</tr>
+			<tr>
+				<td><b>Estado:</b> </td>
+				<td> {{cliente.estado}}</td>
+			</tr>
+
+		</tbody>
+	</table>
+		
+	<hr>
+
+	<a href="#" title="">adicionar novo outro endereço</a>
+	
+	<br>
+	
+	<a class="btn btn-sm btn-warning pull-right" href="{% url 'carrinho:autenticacao' %}" title="">Avançar	</a>
+
+		<h1>{{debug}}</h1>
+
+	{% endif %}
+	<br><br><br><br><br><br>
+</div>
+{% endblock conteudo%}

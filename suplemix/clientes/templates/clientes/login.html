@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{%  load staticfiles %}
+
+{% block conteudo %}
+<div class="container">
+
+	<div class='col-sm-12'>
+		<h1 class="page-header">identificação</h1>
+		<div class="col-lg-6 autentica">
+			
+			<div class="col-lg-10 col-sm-offset-1">
+				<form action="/clientes/autentica-login/" method="POST" accept-charse="utf-8" class="form-horizontal">
+					{% csrf_token %}
+					<h3 class="text-center">já tenho cadastro</h3>
+					<br>
+					<div class="form-group">
+						<label>E-mail:</label>
+						<input type="text" class="form-control" name="email" value="" placeholder="">	
+					</div>
+					
+					<div class="form-group">
+						<label>Senha:</label>
+						<input type="password" class="form-control" name="senha" value="" placeholder="">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-warning">prosseguir</button>
+					</div>
+				</form>
+				{% if message %}
+				<p class="box-danger">{{message}}</p>
+				{% endif %}
+			</div>
+
+		</div>
+		<div class="col-lg-6 autentica">	
+			<div class="col-lg-10 col-sm-offset-1 text-center">
+				<h3 class="text-center">não sou cadastrado</h3>
+				<a href="{% url 'clientes:novo_cliente' %}" title="" class="btn btn-warning btn-lg">criar cadastro</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock conteudo%}

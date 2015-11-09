@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block carrocel %}
+{% include 'carrocel.html'%}
+{% endblock carrocel %}
+
+{% block conteudo %}
+<section>
+	<div class="col-sm-12">
+		<div class="row">
+			<div class="container">
+				<div class="col-sm-12">
+					<h1 class="page-header title-categorias text-left">mais vendidos</h1>
+				</div>
+
+				{% for prod in produtos %}
+
+				<div class="col-sm-3 col-md-3 col-xs-12">
+					<div class="panel panel-warning">
+						<div class="panel-body">
+							<div class="row">
+								<img src="{{MEDIA_URL}}{{prod.foto.url}}" class="img-responsive">
+								<br>
+							</div>
+							<div class="row">
+								<div id="name-prod"> {{prod.descricaoreduzida}}</div>
+							</div>
+						</div>
+						<div class="panel-footer bg-footer-produto">
+							<div class="col-sm-12">
+								<div class="row text-left">
+									
+									<!--
+									{% if prod.is_promocao == 'N' %}
+									<p>&nbsp;</p>
+									<div id="valor-prod">
+										R$ {{prod.valor_venda}} 
+									</div>
+
+									{% else %}
+									<p>de R$ {{prod.valor_venda}}</p>
+									<div id="valor-prod">										
+										por R$ {{prod.valor_promocao}} 
+									</div>
+									{% endif %}
+								-->
+								<div id="valor-prod">										
+									por R$ {{prod.get_preco}} 
+								</div>
+							</div>
+							<div class="row text-right">
+								<a href="{% url 'produtos:detalhe_produto' prod.id %}" class="btn btn-xs btn-default btn-detalhe"><i class="glyphicon glyphicon-plus"></i> detalhes</a>
+							</div>							
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12">
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{% endfor %}
+		</div>
+	</div>
+</div>
+</section>
+
+<section>
+	<div class="col-sm-12">
+		<div class="row bg-categorias text-center">
+			<div class="container">
+				<div class="col-sm-12">
+
+					<h1 class="page-header title-categorias">CATEGORIAS</h1>
+				</div>
+
+				{% for cat in categorias %}
+				<div class="col-sm-2">
+					<div class="img-circle">
+						<h4>{{cat.nome}}</h4>
+					</div>
+					{# <img src="{% static "imgs/logo.png" %}" alt="" class="img-circle"> #}
+				</div>	
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="col-sm-12">	
+		<div class="row">
+			<img src="{% static "imgs/" %}" alt="">
+		</div>
+	</div>
+</section>
+{% endblock conteudo %}
